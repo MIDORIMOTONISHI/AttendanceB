@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get 'home/top', to: 'home#top'
+  root 'home#top'
+
+ resource :users
 
 end
