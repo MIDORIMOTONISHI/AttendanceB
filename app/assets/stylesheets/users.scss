@@ -17,6 +17,19 @@
   }
 }
 
+/* 勤怠情報テーブル */
+#table-attendances{
+  th{
+    vertical-align: middle;
+    text-align: center;
+  }
+  td{
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
+
 /* モーダルウィンドウ */
 .label-basic-info{
   margin-top: 5px;
