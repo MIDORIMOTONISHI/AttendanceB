@@ -26,8 +26,8 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  
+h5{
+  margin-top: 10px;
 }
 
 p {
@@ -52,6 +52,10 @@ p {
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+.list{
+  float: right;
 }
 
 .dropdown-menu{

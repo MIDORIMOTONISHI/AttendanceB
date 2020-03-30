@@ -20,3 +20,5 @@ ja:
           finished_at: 退勤時間
           note: 備考
           user: ユーザーID
+          overtime2: 残業指示
+          instructor2: 指示者
