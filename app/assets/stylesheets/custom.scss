@@ -36,6 +36,11 @@ p {
   margin-top: 10px;
 }
 
+b{
+  font-weight: bold;
+  text-align: left;
+}
+
 
 
 /* header */
@@ -92,8 +97,3 @@ p {
   box-sizing:         border-box;
 }
 
-/* モーダルウィンドウ　*/
-
-.modal-dialog-center{
-  padding-top: 10%;
-}

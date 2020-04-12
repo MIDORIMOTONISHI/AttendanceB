@@ -7,13 +7,14 @@
         【<%= l(@first_day, format: :middle) %>】時間管理表
         <%= link_to "➯", user_path(date: @first_day.next_month), class: "btn btn-primary" %></td>  
       <td><h5>指定勤務時間：<%= format_basic_info(@user.work_time) %></h5></td>
-      <td><h5>基本時間：<%= format_basic_info(@user.basic_time) %></h5></td>
+      <td colspan="2"><h5>基本時間：<%= format_basic_info(@user.basic_time) %></h5></td>
       <td><h5>初日：<%= l(@first_day, format: :short) %></h5></td>
     </tr>
 
     <tr>
-      <td>所属：<%= @user.department.present? ? @user.department : "未所属" %></td>
+      <td>所属：<%= @user.department2.present? ? @user.department2 : "未所属" %></td>
       <td>氏名：<%= @user.name %></td>
+      <td>コード</td>
       <td>出勤日数：<%= @worked_sum %>日</td>
       <td>締日：<%= l(@last_day, format: :short) %></td>
     </tr>
@@ -48,7 +49,14 @@
       <% @attendances.each do |day| %>
         <tr>
           <td><%= l(day.worked_on, format: :short) %></td>
-          <td><%= $days_of_the_week[day.worked_on.wday] %></td>
+            <% if day.worked_on.wday == 6 %>
+              <td class="sat"><%= $days_of_the_week[day.worked_on.wday] %>
+            <% elsif day.worked_on.wday == 0 %>
+              <td class="sun"><%= $days_of_the_week[day.worked_on.wday] %>
+            <% else %>
+              <td><%= $days_of_the_week[day.worked_on.wday] %>
+            <% end %>
+          </td>
           <td><%= day.started_at.strftime('%H') if day.started_at.present? %></td>
           <td><%= day.started_at.strftime('%M') if day.started_at.present? %></td>
           <td>
