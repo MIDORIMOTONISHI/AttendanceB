@@ -51,15 +51,12 @@ class UsersController < ApplicationController
   end
   
   def update_basic_info
-    @users = User.all
-    @user.each do |user|
-      if users.update_attributes(basic_info_params)
-        flash[:success] = "勤怠情報を更新しました。"
-        redirect_to users_url and return
-      else
-        flash[:danger] = "無効な入力データがあった為、更新をキャンセルしました。"
-        redirect_to edit_basic_info_user_url and return
-      end
+    if @user.update_attributes(basic_info_params)
+      flash[:success] = "#{@user.name}の勤怠情報を更新しました。"
+      redirect_to users_url and return
+    else
+      flash[:danger] = "#{@user.name}の更新は失敗しました。"
+      redirect_to edit_basic_info_user_url and return
     end
   end
   
